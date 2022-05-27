@@ -59,6 +59,11 @@ To run SVON-pipeline user need to have these folders in this structure:
            └── example_config.yaml
 ```
 
+### Pipeline execution
+Run 
+`$ snakemake --configfile config/example_config.yaml -c1 `
+in the src folder. A successful run will create a run directory in the data folder. The output comprises the following files …
+
 
 
 
