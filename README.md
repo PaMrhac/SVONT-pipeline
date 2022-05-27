@@ -1,5 +1,5 @@
 # SVONT-pipeline
-SVONT-pipeline is pipeline for structural variant detection and annotation using Oxford Nanopore data. Oxford Nanopore Technologies provide technology for  It is implemented by Snakemake, workflow manager based od python.
+SVONT-pipeline is pipeline for **structural variant detection and annotation using Oxford Nanopore data**. Oxford Nanopore Technologies provide technology for  It is implemented by Snakemake, workflow manager based od python.
 
 Files in following formats are used as input:
 - sequences in FAST5 format
