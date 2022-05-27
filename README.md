@@ -22,9 +22,9 @@ SVONT-pipeline perform following steps:
 minimap2, nanopolish, pysam, samtools, snakemake, sniffles2, gzip, NanoPlot, NanoStat, AnnotSV
 
 Packages nanopolish, minimap2, samtools, pysam, sniffles=2.0, snakemake, NanoPlot and NanoStat can be install from Bioconda:
-'''
+´´´
 conda install -c bioconda nanopolish minimap2 samtools pysam sniffles=2.0 snakemake NanoPlot NanoStat
-'''
+´´´
 
 conda install -c conda-forge gzip
 git clone https://github.com/lgmgeo/AnnotSV.git | make install
