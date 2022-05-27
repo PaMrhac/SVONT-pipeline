@@ -21,9 +21,9 @@ SVONT-pipeline perform following steps:
 
 ## Dependencies
 For execution SVONT-pipeline are reqiured following packages:\
-**minimap2, nanopolish, pysam, samtools, snakemake, sniffles2, gzip, NanoPlot, NanoStat, AnnotSV, script fastq_to_fasta.py**
+[minimap2](https://github.com/lh3/minimap2), [nanopolish](https://nanopolish.readthedocs.io/en/latest/), [pysam](https://pysam.readthedocs.io/en/latest/api.html), [samtools](http://www.htslib.org/doc/samtools.html), [snakemake](https://snakemake.readthedocs.io/en/stable/), [sniffles2](https://github.com/fritzsedlazeck/Sniffles), [NanoPlot](https://github.com/wdecoster/NanoPlot), [NanoStat](https://github.com/wdecoster/nanostat), [AnnotSV](https://lbgi.fr/AnnotSV/), [gzip](https://www.gnu.org/software/gzip/), script fastq_to_fasta.py
 
-Packages nanopolish, minimap2, samtools, pysam, sniffles=2.0, gzip, snakemake, NanoPlot and NanoStat can be install using Conda:
+Packages nanopolish, minimap2, samtools, pysam, sniffles=2.0, snakemake, gzip, NanoPlot and NanoStat can be install using Conda:
 ```
 conda install -c bioconda nanopolish minimap2 samtools pysam sniffles=2.0 snakemake NanoPlot NanoStat
 conda install -c conda-forge gzip
