@@ -46,7 +46,7 @@ AnnotSV: path_to_AnnotSV_directory_which_was_installed
 
 ### Folder structure
 To run SVON-pipeline user need to have these folders in this structure:
-
+```
   |
   ├── data/
   |    ├── example_input/
@@ -57,7 +57,7 @@ To run SVON-pipeline user need to have these folders in this structure:
       |    └── fastq_to_fast5.py
       └── config/
            └── example_config.yaml
-
+```
 
 
 
