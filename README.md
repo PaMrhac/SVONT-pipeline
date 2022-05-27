@@ -66,11 +66,19 @@ Run
  in the **src** folder. A successful run will create a run directory in the data folder. 
  
  ## Output
- The output comprises the following files in the data folder:
- - 
-
-
-
-
-
-
+ The output comprises the following files and directories in the data folder:
+ - AnnotSV.log
+ - reads.fasta
+ - reads.fasta.index
+ - reads.fasta.index.fai
+ - reads.fasta.index.gzi
+ - reads.fasta.index.readdb
+ - reads.vcf
+ - reads_fastq_all.fastq
+ - reads-ref.sorted.bam
+ - reads-ref.sorted.bam.bai
+ - stats
+ - directory annotation
+ - directory fastq
+ - directory graphs
+ - directory log
