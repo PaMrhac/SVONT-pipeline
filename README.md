@@ -19,15 +19,18 @@ SVONT-pipeline perform following steps:
 
 
 ## Dependencies
-minimap2, nanopolish, pysam, samtools, snakemake, sniffles2, gzip, NanoPlot, NanoStat, AnnotSV
+minimap2, nanopolish, pysam, samtools, snakemake, sniffles2, gzip, NanoPlot, NanoStat, AnnotSV, script fastq_to_fasta.py
 
-Packages nanopolish, minimap2, samtools, pysam, sniffles=2.0, snakemake, NanoPlot and NanoStat can be install from Bioconda:
+Packages nanopolish, minimap2, samtools, pysam, sniffles=2.0, gzip, snakemake, NanoPlot and NanoStat can be install using Conda:
 ```
 conda install -c bioconda nanopolish minimap2 samtools pysam sniffles=2.0 snakemake NanoPlot NanoStat
-```
-
 conda install -c conda-forge gzip
+```
+A tool AnnotSV can´t be installed using Conda, it need to be clone from github repository:
+```
 git clone https://github.com/lgmgeo/AnnotSV.git | make install
-skript fastq_to_fasta.py
+```
+The script fastq_to_fasta.py can be download from this repository.
+
 
 SVONT-pipeline uses a configuration file, where are written paths to interested files.
