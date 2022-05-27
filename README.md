@@ -8,8 +8,6 @@ Files in following formats are used as input:
 
 Annotated structural variants are summarized in tsv file which is the output of SVONT-pipeline. 
 
-SVONT-pipeline uses a configuration file, where are written paths to interested files.
-
 ### Features
 SVONT-pipeline perform following steps:
 - unzip of zipped FASTQ files
@@ -19,3 +17,17 @@ SVONT-pipeline perform following steps:
 - detection of structural variant
 - annotation of detected variants
 
+
+## Dependencies
+minimap2, nanopolish, pysam, samtools, snakemake, sniffles2, gzip, NanoPlot, NanoStat, AnnotSV
+
+Packages nanopolish, minimap2, samtools, pysam, sniffles=2.0, snakemake, NanoPlot and NanoStat can be install from Bioconda:
+'''
+conda install -c bioconda nanopolish minimap2 samtools pysam sniffles=2.0 snakemake NanoPlot NanoStat
+'''
+
+conda install -c conda-forge gzip
+git clone https://github.com/lgmgeo/AnnotSV.git | make install
+skript fastq_to_fasta.py
+
+SVONT-pipeline uses a configuration file, where are written paths to interested files.
