@@ -1,5 +1,5 @@
 # SVONT-pipeline
-SVONT-pipeline is pipeline for structural variant detection and annotation using Oxford Nanopore data. 
+SVONT-pipeline is pipeline for structural variant detection and annotation using Oxford Nanopore data. It is implemented by Snakemake, workflow manager based od python.
 
 Files in following formats are used as input:
 - sequences in FAST5 format
@@ -30,7 +30,7 @@ A tool AnnotSV can´t be installed using Conda, it need to be clone from github 
 ```
 git clone https://github.com/lgmgeo/AnnotSV.git | make install
 ```
-The script fastq_to_fasta.py can be download from this repository.
+The python script fastq_to_fasta.py can be download from this repository.
 
 
 SVONT-pipeline uses a configuration file, where are written paths to interested files.
