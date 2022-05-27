@@ -11,6 +11,7 @@ Annotated structural variants are summarized in tsv file which is the output of 
 ### Features
 SVONT-pipeline perform following steps:
 - unzip of zipped FASTQ files
+- make one FASTQ file where are extracted all FASTQ files
 - transformation of fastq files to file in FASTA format
 - computing statistics from reads, visualization 
 - mapping reads to reference sequence
@@ -61,7 +62,7 @@ To run SVON-pipeline user need to have these folders in this structure:
 
 ### Pipeline execution
 Run 
-`$ snakemake --configfile config/example_config.yaml -c1 `
+`$ snakemake --configfile config/example_config.yaml -c1 ` 
 in the src folder. A successful run will create a run directory in the data folder. The output comprises the following files …
 
 
