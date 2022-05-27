@@ -37,14 +37,26 @@ The python script fastq_to_fasta.py can be download from this repository.
 ### Configuration file
 SVONT-pipeline uses a configuration file which has to contain folowing variables:
 ```
-run: name_of _the_run
+run: name_of_the_run
 fast5Dir: path_to_fast5_directory
 ref: path_to_reference_fasta_file (index file should also be present in the same folder)
 fastqDir: path_to_fastq_directory
 AnnotSV: path_to_AnnotSV_directory_which_was_installed
 ```
 
+### Folder structure
+To run SVON-pipeline user need to have these folders in this structure:
 
+  |
+  ├── data/
+  |    ├── example_input/
+  |    └── ref/
+  └── src/
+      ├── Snakefile
+      ├── scripts/
+      |    └── fastq_to_fast5.py
+      └── config/
+           └── example_config.yaml
 
 
 
