@@ -1,0 +1,5 @@
+run: name_of_the_run
+fast5Dir: path/to/fast5/directory
+ref: path/to/reference/fasta/file
+fastqDir: path/to/fastq/directory
+AnnotSV: path/to/AnnotSV/directory
