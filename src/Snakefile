@@ -1,0 +1,93 @@
+rule all:
+    input:
+        expand("../data/{run}/AnnotSV.log", run=config["run"])
+        # expand("../data/{run}/reads-ref.eventalign.txt", run=config["run"])
+    shell:
+        "echo {input}"
+
+rule annotation:
+    input:
+        vcf="../data/{run}/reads.vcf",
+        AnnotSV=config["AnnotSV"]
+    output:
+        directory("../data/{run}/annotation")
+    log:
+        "../data/{run}/AnnotSV.log"
+    shell:
+        """
+        export ANNOTSV={input.AnnotSV}
+        {input.AnnotSV}/bin/AnnotSV -SVinputFile {input.vcf} \
+        -annotationMode split -genomeBuild GRCh37 -outputDir {output} >& {log} &
+        """
+
+rule SV_calling:
+    input:
+        sorted="../data/{run}/reads-ref.sorted.bam"
+    output:
+        "../data/{run}/reads.vcf"
+    shell:
+        "sniffles --input {input.sorted} --vcf {output}"
+
+rule align_to_ref:
+    input:
+        log="../data/{run}/log/nanopolish.log",
+        ref=config["ref"],
+        fasta="../data/{run}/reads.fasta"
+    output:
+        "../data/{run}/reads-ref.sorted.bam"
+    shell:
+        "minimap2 -ax map-ont -t 8 {input.ref} {input.fasta} | samtools sort -o {output} -T reads.tmp; samtools index {output}"
+
+rule nanopolish_index:
+    input:
+        fast5Dir=config["fast5Dir"],
+        fasta="../data/{run}/reads.fasta",
+        graphs="../data/{run}/graphs"
+    log:
+        "../data/{run}/log/nanopolish.log"
+    shell:
+        "nanopolish index -d {input.fast5Dir} {input.fasta} > {log}"
+
+rule nanoplot:
+    input:
+        fasta="../data/{run}/reads.fasta",
+        log="../data/{run}/stats"
+    output:
+        directory("../data/{run}/graphs")
+    shell:
+        "NanoPlot -o {output} --color green --format jpg --title {wildcards.run} --fasta {input.fasta}"
+
+rule nanostat:
+    input:
+        "../data/{run}/reads_fastq_all.fastq"
+    output:
+        "../data/{run}/stats"
+    shell:
+        "NanoStat -n {output} --fastq {input}"
+
+rule fastq_all:
+    input:
+        fastqDir="../data/{run}/fastq"
+    output:
+        "../data/{run}/reads_fastq_all.fastq"
+    shell:
+        "cat {input.fastqDir}/* > {output}"
+
+rule get_fasta:
+    input:
+        fastqDir="../data/{run}/fastq"
+    output:
+        "../data/{run}/reads.fasta"
+    script:
+        "scripts/fastq_to_fasta.py"
+
+rule unzip:
+    input:
+        fastqDir=config["fastqDir"]
+    output:
+        directory("../data/{run}/fastq")
+    shell:
+        """
+        cp -r {input.fastqDir} {output}
+        gzip -d {output}/*
+        """
